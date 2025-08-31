@@ -1,30 +1,8 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import { formConfig } from "../config/formConfig";
-import {
-  CheckCircle,
-  GraduationCap,
-  Briefcase,
-  Smile,
-  Check,
-  Circle,
-  Square,
-} from "lucide-react";
+import { CheckCircle, Check, Circle, Square } from "lucide-react";
 
 type AnswerState = Record<string, any>;
-
-// Map chapter "icon" keys from config to lucide icons
-const iconMap: Record<string, JSX.Element> = {
-  education: <GraduationCap className="w-7 h-7 text-blue-500" />,
-  work: <Briefcase className="w-7 h-7 text-purple-500" />,
-  feedback: <Smile className="w-7 h-7 text-pink-500" />,
-};
-
-// Map chapter "icon" keys to emojis for progress bar
-const emojiMap: Record<string, string> = {
-  education: "📚",
-  work: "💼",
-  feedback: "😄",
-};
 
 const MultiStepForm = () => {
   const [chapterIndex, setChapterIndex] = useState(0);
@@ -116,13 +94,7 @@ const MultiStepForm = () => {
         {/* Progress bar */}
         <div className="mb-6">
           <div className="flex justify-between text-sm font-medium mb-2 items-center">
-            <span className="flex items-center gap-2">
-              {/* Lucide icon */}
-              {iconMap[currentChapter.icon] || null}
-              {/* Emoji beside title */}
-              <span>{emojiMap[currentChapter.icon]}</span>
-              {currentChapter.title}
-            </span>
+            <span>{currentChapter.title}</span>
             <span>
               {currentStep} / {totalScreens}
             </span>

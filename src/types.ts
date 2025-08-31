@@ -1,4 +1,5 @@
-export type Choice = { value: string; label: string };
+// Define a simple option type
+export type Choice = string; // Use string directly for simpler config
 
 export type QuestionBase = {
   id: string;
@@ -8,9 +9,18 @@ export type QuestionBase = {
   helperText?: string;
 };
 
-export type TextQuestion = QuestionBase & { type: "text"; placeholder?: string };
-export type RadioQuestion = QuestionBase & { type: "radio"; options: Choice[] };
-export type CheckboxQuestion = QuestionBase & { type: "checkbox"; options: Choice[] };
+export type TextQuestion = QuestionBase & {
+  type: "text";
+  placeholder?: string;
+};
+export type RadioQuestion = QuestionBase & {
+  type: "radio";
+  options: Choice[]; // array of strings
+};
+export type CheckboxQuestion = QuestionBase & {
+  type: "checkbox";
+  options: Choice[]; // array of strings
+};
 
 export type Question = TextQuestion | RadioQuestion | CheckboxQuestion;
 
@@ -22,7 +32,8 @@ export type Screen = {
 };
 
 export type Chapter = {
-  id: string;
+  id: string;       // required id for strict TS typing
+  icon?: string;    // optional icon for UI
   title: string;
   screens: Screen[];
 };
@@ -32,5 +43,6 @@ export type FormConfig = {
   chapters: Chapter[];
 };
 
+// Answers & Validation maps
 export type AnswersMap = Record<string, string | string[] | undefined>;
 export type ValidationErrors = Record<string, string | undefined>;

@@ -1,9 +1,16 @@
-export const formConfig = {
+import type { FormConfig } from "../types"; // "../types" because types.ts is in src
+
+
+
+export const formConfig: FormConfig = {
   chapters: [
     {
+      id: "personalInfo",
+      icon: "education",
       title: "Personal Information",
       screens: [
         {
+          id: "basicInfo",
           title: "Basic Information",
           questions: [
             { id: "fullName", type: "text", label: "What’s your full name?", required: true },
@@ -11,6 +18,7 @@ export const formConfig = {
           ],
         },
         {
+          id: "aboutYou",
           title: "About You",
           questions: [
             {
@@ -40,9 +48,12 @@ export const formConfig = {
       ],
     },
     {
+      id: "motivation",
+      icon: "work",
       title: "Your Motivation",
       screens: [
         {
+          id: "learningGoal",
           title: "Learning Goal",
           questions: [
             {
@@ -68,9 +79,12 @@ export const formConfig = {
       ],
     },
     {
+      id: "learningJourney",
+      icon: "feedback",
       title: "Personal Learning Journey",
       screens: [
         {
+          id: "learningPreferences",
           title: "Learning Preferences",
           questions: [
             {
@@ -103,9 +117,12 @@ export const formConfig = {
       ],
     },
     {
+      id: "experienceLevel",
+      icon: "education",
       title: "Experience Level",
       screens: [
         {
+          id: "currentKnowledge",
           title: "Current Knowledge",
           questions: [
             {
@@ -131,9 +148,12 @@ export const formConfig = {
       ],
     },
     {
+      id: "finalSetup",
+      icon: "work",
       title: "Final Setup",
       screens: [
         {
+          id: "finalSetupScreen",
           title: "Final Setup",
           questions: [
             {
